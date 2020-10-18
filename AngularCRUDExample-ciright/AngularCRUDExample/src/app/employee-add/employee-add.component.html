@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col-sm-12">
+		<app-card cardTitle="Add Employee" [options]="false">
+		<form #validationForm="ngForm" class="editForm" novalidate>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="form-label">Employee Name</label> <input type="text"
+							class="form-control" name="empName" placeholder="Employee Name"
+							[ngClass]="{'is-invalid': !empName.valid && (empName.dirty || empName.touched || isSubmit)}"
+							#empName="ngModel" required [(ngModel)]="formInput.empName">
+						<label
+							*ngIf="!empName.valid && (empName.dirty || empName.touched || isSubmit)"
+							id="validation-required-error"
+							class="error jquery-validation-error small form-text invalid-feedback">Employee Name should be required</label>
+					</div>
+				</div>
+      
+        		<div class="col-md-6">
+					<div class="form-group">
+						<label class="form-label">Employee City</label> <input type="text"
+							class="form-control" name="empCity" placeholder="Employee City"
+							[ngClass]="{'is-invalid': !empCity.valid && (empCity.dirty || empCity.touched || isSubmit)}"
+							#empCity="ngModel" required [(ngModel)]="formInput.empCity">
+						<label
+							*ngIf="!empCity.valid && (empCity.dirty || empName.touched || isSubmit)"
+							id="validation-required-error"
+							class="error jquery-validation-error small form-text invalid-feedback">Employee City should be required</label>
+					</div>
+                </div>
+                <div class="col-md-6">
+					<div class="form-group">
+						<label class="form-label">Employee Designation</label> <input type="text"
+							class="form-control" name="empDesignation" placeholder="Employee Designation"
+							[ngClass]="{'is-invalid': !empDesignation.valid && (empDesignation.dirty || empDesignation.touched || isSubmit)}"
+							#empDesignation="ngModel" required [(ngModel)]="formInput.empDesignation">
+						<label
+							*ngIf="!empDesignation.valid && (empDesignation.dirty || empDesignation.touched || isSubmit)"
+							id="validation-required-error"
+							class="error jquery-validation-error small form-text invalid-feedback">Employee Designation should be required</label>
+					</div>
+				</div>
+      
+			</div> 
+			<div style="float: right;" class="form-group text-center">
+				<button *ngIf="id === undefined " type="button" uiSref="work"
+					class="btn btn-primary btn-raised" (click)="save(validationForm)">
+					Save</button>
+				<button *ngIf="id != undefined " type="button" uiSref="work"
+					class="btn btn-primary btn-raised" (click)="save(validationForm)">
+					Update</button>
+				<button type="button" class="btn btn-danger" ngbTooltip="btn-danger"
+					(click)="back()">Cancel</button>
+
+
+      </div>    
+		</form>
+		</app-card>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="col-sm-12"> 
+		<app-card cardTitle="Ciright Employee" [options]="false">
+		<button  type="button" class="btn btn-primary" ngbTooltip="btn-primary"
+			routerLink="/employee-add"
+			style="float: right; margin-top: -7px; margin-bottom: 20px;">Add Employee</button>
+		<div class="table-responsive">
+	
+				<table datatable class="table table-striped row-border table-hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>Employee Name</th>
+						<th>Employee City</th>
+						<th>Employee Designation</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let emp of empList let i=index">
+						<td>{{i+1}}</td>
+						<td>{{emp.empName}}</td>
+                        <td>{{emp.empCity}}</td>
+                        <td>{{emp.empDesination}}</td>
+						<td>
+
+							
+								<button  type="button"
+								style="background-color: #60d0f6; width: 70px; height: 25px; padding: initial"
+								class="btn btn-rounded btn-info"
+								(click)="delete(emp._id)">delete</button>
+
+								<button type="button"
+								style="background-color: #fa8a82;; width: 70px; height: 25px; padding: initial"
+								class="btn btn-rounded btn-danger"
+								(click)="edit(emp)">edit</button>
+                        </td> 
+						
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+		</app-card>
+	</div>
+
+</div>
